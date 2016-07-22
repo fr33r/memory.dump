@@ -1,11 +1,10 @@
 ## Applying REST
----
 
 ### What is REST?
 
 REST is a software architecture devised by Roy Fielding, and stands for **RE**presentational **S**tate **T**ransfer. If you haven't done so, I highly recommend taking a deep dive into Fielding's PhD dissertation where he articulates what the REST architecture is.
 
-If you are looking for a quick way to get up to speed on it, glance over my summarization of chapter 5 of his dissertation here.
+If you are looking for a quick way to get up to speed on it, glance over my summarization of chapter 5 of his dissertation [here](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm).
 
 Not feeling that either? Here is all I will give you for your laziness:
 
@@ -17,4 +16,4 @@ However, REST is something much larger. It is the architecture of the **W**orld 
 
 That's right, you've been using systems that implement the RESTful architecture and you didn't even know it. This is perhaps one of the most important concepts to realize when starting to learn about REST. It is the formalization and the coagulation of a design process that is currently implemented by the web.
 
-Due to this, I have a strong feeling that you are fluent in several parts of the REST simply because you use the web every day and have for years.
+Due to this, I have a strong feeling that you are fluent in several parts of the REST architecture simply because you use the web every day and have for years.
