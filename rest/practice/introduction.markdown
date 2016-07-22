@@ -2,9 +2,9 @@
 
 ### What is REST?
 
-REST is a software architecture devised by Roy Fielding, and stands for **RE**presentational **S**tate **T**ransfer. If you haven't done so, I highly recommend taking a deep dive into Fielding's PhD dissertation where he articulates what the REST architecture is.
+REST is a software architecture devised by Roy Fielding, and stands for **RE**presentational **S**tate **T**ransfer. If you haven't done so, I highly recommend taking a deep dive into Fielding's PhD [dissertation]((http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)) where he articulates what the REST architecture is.
 
-If you are looking for a quick way to get up to speed on it, glance over my summarization of chapter 5 of his dissertation [here](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm).
+If you are looking for a quick way to get up to speed on it, glance over my summarization of chapter 5 of his dissertation [here](http://www.example.com).
 
 Not feeling that either? Here is all I will give you for your laziness:
 
