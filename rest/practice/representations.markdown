@@ -63,3 +63,13 @@ Once the server receives the request to create a new resource along with a repre
 As you can see the _representation_ of the new resource created was sent from the server in the format of HTML.
 
 This example demonstrates the defintion of the REST acronym: **RE**presentational **S**tate **T**ransfer.
+
+As the example I showed above demonstrates, it is certainly possible for a resource to have many different representations. So how does a particular component of the system (let's say, your browser) request the specific representation it wants?
+
+There are two approaches:
+
+- Content Negotiation
+  - The client specifies the desired representation(s) by setting a value of a particular HTTP header.
+- Multiple URIs
+  - Remember back to when I said a resource had to have at least one URI to identify it? There can be multiple URIs for a single resource, each defining what kind of representation is desired.
+  - However, the server responsible for that resource should designate one of the URIs as the official or "canonical" URI.
