@@ -1,2 +1,5 @@
 # memory.dump
-my persisted memory.
+
+```csharp
+Person jonfreer = new Person("jon", "freer", 24, "programmer");
+```
