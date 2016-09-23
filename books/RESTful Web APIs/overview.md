@@ -7,7 +7,7 @@
 
 Overall, I felt that this book was a great resource for learning what goes into making robust web APIs that adhere to the REST architecture. This book touches everything from the basics of HTTP, to the advanced concepts of using hypermedia to drive application state. The appendixes of this book even include an exhaustive list of HTTP 1.1 status codes and HTTP 1.1 headers to further aid the reader on how to apply them during RESTful Web API development.
 
-The author concentrates on educating his audience about how in the current world of API development, there is not enough done to establish standards for API development. The author guides the reader as to why as API developers, we need to stop creating API's that use a _"fiat standard"_ and use human readable documentation as a replacement for hypermedia.
+The author concentrates on educating his audience about how in the current world of API development, there is not enough done to establish standards for API development. The author guides the reader as to why as API developers, we need to stop creating API's that use a _"fiat standard"_ as well as stop creating human readable documentation as a replacement for hypermedia.
 
 I personally found this objective to be interesting and insightful, but I also found it to be difficult to fully conceptualize in the beginning. I feel that the topics related this objective are important, but I also see them as being difficult to understand and apply if the reader has not previously had extensive experience in building RESTful APIs or hasn't researched the REST architecture in general. The author dedicated a large portion of the book to these topics, but I feel this is truly to emphasize their importance.
 
