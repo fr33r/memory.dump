@@ -39,7 +39,7 @@ Instead, I want the information I relay to you to serve as concise reference inf
 
   10. [The Hypermedia Zoo](chapter_10.md)
 
-  11. [HTTP for APIs](chapter_11.md)
+  11. [HTTP for APIs](https://github.com/freerjm/memory.dump/blob/master/books/RESTful%20Web%20APIs/chapter_11.markdown)
 
   12. [Resource Description and Linked Data](chapter_12.md)
 
