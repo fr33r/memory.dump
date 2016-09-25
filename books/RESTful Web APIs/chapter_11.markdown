@@ -18,3 +18,46 @@ Also, by not strictly abiding by RFC2616, the developer can cause confusion:
 >If a client sends some bad data to your API, you should send the response code `400 (Bad Request)` and an entity-body explaining what the problem is. _Don't_ send `200 (OK)` with an error message. You are lying to the client. - Pg. 238
 
 Although it may seem obvious, I have personally seen these kinds of issues in the workplace. API developers __need__ to read RFC2616 and/or and RFC that comes along to update it.
+
+##### Content Negotiation
+
+Resources can have many representations. Some of these resources may be in different languages. Some of them may be represented by different media types (such as `application/json` or `application/xml`).
+
+ Clients usually only understand a single media type, so the client needs to be able to specify to the web API which media type it needs. The client would utilize the `Accept` HTTP header:
+
+`Accept: application/json`
+
+Clients may or may not support various languages (especially if the client is used among many different countries and cultures). In order to receive data from the web API in the correct language, the client would utilize the `Accept-Language` HTTP header:
+
+`Accept-Language: en-us`
+
+These are not all of the `Accept-*` HTTP headers that can be used, but the two above are the most common. If any of the `Accept-*` HTTP headers cannot be satisfied, the web API should return an HTTP status code of `406 (Not Acceptable)`.
+
+###### Topics Not Covered in Summary
+- Negotiating Profiles
+- Hypermedia Menus
+- Canonical URLs
+
+##### Performance
+
+As with any application, performance warrants considerable attention. Fortunately, RFC2616 has many tools for API developers to leverage to improve the performance of the communication between client and API.
+
+###### Caching
+
+It is common that clients will be calling into our API when they don't necessarily have to. What I mean is, the state of the resource has not changed since they last requested it. This is where _caching_ can significantly improve a client's performance.
+
+There are several ways to utilize caching using HTTP, but one of the simplest is by utilizing the `Cache-Control` HTTP header. The `Cache-Control` HTTP header has several values it can have, usually taking on the form of key/value pairs known as _directives_. Some common examples are:
+
+`Cache-Control: max-age=3600`
+
+`Cache-Control: no-cache`
+
+The `max-age` directive is simply indicating to the client how long it should wait until making that same request again. In the example above, the client should wait `3600` seconds, or one hour before making that request again.
+
+The `no-cache` directive tells clients to never cache the response it receives from the request. This directive should be reserved for resource representations that are very _volatile_. In the words of the authors:
+
+> This indicates that the resource state is so volatile that the representation probably becomes obsolete in the time it took to send it. - Pg. 242
+
+One important point is that the directive applies to the __entire__ response, not just the entity-body of the response. This means the client can cache the response code, the HTTP headers in the response, the entity-body in the response, etc.
+
+###### Conditional GET Requests
