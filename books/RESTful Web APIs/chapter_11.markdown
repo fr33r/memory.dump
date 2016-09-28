@@ -90,5 +90,21 @@ The web API then uses the requested compression algorithm to compress the resour
 
 ##### Topics Not Covered in Summary
 - LBYL Requests
-- Partial get
+- Partial GET
 - Pipelining
+
+#### Extensions to HTTP
+
+Majority (but not all!) of RESTful Web API's have been implemented to make use of the HTTP protocol. Over time, there have been some extensions made to the HTTP protocol to help benefit RESTful Web APIs specifically.
+
+##### HTTP PATCH Verb
+
+The HTTP verb of `PATCH` was defined in `RFC5789` to eliminate the potential performance problem when using the `PUT` HTTP verb. With `PUT` the client must provide **the entire** resource representation in a request, representing the desired state of that resource. With `PATCH`, a client can simply send the changes they wish to make to the resource.
+
+Although this is an optimization, there is a downside when using the `PATCH` HTTP verb. The client and RESTful Web API must agree on a new media type of patch documents. However, there are already existing RFCs for these media types for both `JSON` (`RFC6902`) and `XML` (`RFC5261`).
+
+##### Topics Not Covered in Summary
+- OAuth
+- LINK and UNLINK HTTP Verbs
+- WebDAV
+- HTTP 2.0
