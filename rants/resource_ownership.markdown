@@ -42,7 +42,9 @@ Suppose you have two teams:
 
 Team A and Team B both interact with a RESTful API.
 
-Team A -----------------> API <----------------- Team B
+```
+Team A  ----------------->  API <-----------------  Team B
+```
 
 Team A decides to create a new resource based on their idea of what is a valid state of the resource.
 
