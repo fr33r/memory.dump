@@ -14,6 +14,7 @@ Every RESTful API revolves around the concept of _resources_ and _representation
 
 - Responsible for defining the resources themselves.
 - Responsibly for defining, creating, maintaining, and evolving representations of the resources.
+- Responsible for what operations can be performed on the resources.
 - Responsible for ensuring that all resources are in a valid state.
 
 Today, I literally had to attempt to explain to another team why they should validate  the desired resource states being provided for resource creation and alteration (`POST` and `PUT`). As it stands, they feel that their clients should be responsible for sending them valid data.
