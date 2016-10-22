@@ -59,7 +59,7 @@ You may be wondering what some real-world data examples of this could be. The be
 - Human name formats.
 - ...etc.
 
-Team B includes the country dialing code when creating or updating resources to allow for clients from all over the world make use of them. Team A could care less, so they do not provide dialing codes. Team B is then left to sift through the garbage, while the designer/creator of the API turns a blind eye.
+Team B includes the country dialing code for phone numbers when creating or updating resources to allow for clients from all over the world make use of them. Team A could care less, so they do not provide dialing codes. Team B is then left to sift through the garbage, while the designer/creator of the API turns a blind eye.
 
 Okay, so how does a RESTful API enforce validity? Luckily, this is incredibly easy using HTTP. The answer lies with these HTTP response codes:
 
