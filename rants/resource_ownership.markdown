@@ -27,7 +27,7 @@ The further explanation on Wikipedia is on point:
 
 >In other words, code that sends commands or data to other machines (or to other programs on the same machine) should conform completely to the specifications, but code that receives input should accept non-conformant input as long as the meaning is clear.
 
-In the case of RESTful API's built on top of HTTP, the specification that **must** be conformed to is the [HTTP specification](https://tools.ietf.org/html/rfc2616).
+In the case of RESTful API's built on top of HTTP, the specification that **must** be conformed to is the [HTTP specification](https://tools.ietf.org/html/rfc2616). It's also important to clarify that accepting non-conformant input in the context of RESTful APIs using HTTP, means that receiving that input, analyzing it, and constructing informative responses to the client to indicate why the input is non-comformant.
 
 How could a designer/creator of a RESTful API expect its clients to provide valid data? How does a client know what "valid" means?
 
@@ -104,6 +104,8 @@ Below are the official definitions of these HTTP response codes:
    response entity would likely contain a list of the differences
    between the two versions in a format defined by the response
    Content-Type.
+
+Upon receiving a request from a client that is invalid based on the criteria explained by the HTTP specification for these three response codes, an API constructs a response indicating why the request is invalid so that the client can take corrective action.
 
 ### Conclusion
 
