@@ -17,9 +17,9 @@ A quick glance through the [HTTP 1.1](https://tools.ietf.org/html/rfc2616) speci
 
 > The server on which a given resource resides or is to be created.
 
-A RESTful API is essentially the origin server as defined above in the HTTP specification. A server application such as Microsoft IIS, Apache Tomcat, etc. receives incoming requests, provides the request information to the RESTful API implementation. The RESTful API then processes the request and generates a response and provides this response to the server application, which then is responsible for writing the bits onto the wire to the requesting client.
+A RESTful API is essentially the _origin server_ as defined above in the HTTP specification. A server application such as Microsoft IIS, Apache Tomcat, etc. receives incoming requests and provides the request information to the RESTful API implementation. The RESTful API then processes the request, generates a response, and provides this response to the server application, which then is responsible for writing the bits onto the wire to the requesting client.
 
-Many times, I have integrated with source system or third-party RESTful API's that assume no responsibility for ensuring the integrity of their resource states. They simply accept the desired state that I requested when creating or updating a resource, and performed no additional validation.
+Many times, I have integrated with source system or third-party RESTful API's that assume no responsibility for ensuring the integrity of their resource states. They simply accept the desired state that I requested when creating or updating a resource, and perform no additional validation.
 
 How could a designer/creator of a RESTful API expect its clients to provide valid data? How does a client know what "valid" means?
 
@@ -101,4 +101,4 @@ Upon receiving a request from a client that is invalid based on the criteria exp
 
 ### Conclusion
 
-A RESTful API that exposes access to resources, owns those resources. The API is responsible for their definition, the lifespan, their representation, as well as their validity. RESTful API's built on top of the HTTP application protocol have several means of indicating to clients that the resource state they are attempting to transfer is invalid.
+A RESTful API that exposes access to resources, owns those resources. The API is responsible for their definition, their lifespan, their representation(s), as well as their validity. RESTful API's built on top of the HTTP application protocol have several means of indicating to clients that the resource state they are attempting to transfer is invalid.
