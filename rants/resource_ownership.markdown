@@ -2,11 +2,7 @@
 
 >Garbage in, garbage out.
 
-It's incredible to me how much time and effort I have spent in my career as a software engineer disputing with other engineers what their software is responsible for.
-
-In particular, I have been hit with these challenges when discussing RESTful API architectures. Many of those that I work with have a difficult time understanding what it means to have a RESTful API and what all responsibilities come along with it.
-
-In particular I have been truly baffled by the lack of **resource ownership**.
+Ironically, in my career as an API engineer, I have faced several challenges when it comes time for me to write a RESTFul API that integrates with another RESTful API. The RESTful API I need to interact with could be a source system API, an API written by a third-party, etc. Of the many obstacles I have encountered, the most troubling has been the absence of **resource ownership**.
 
 What do I mean?
 
@@ -17,21 +13,17 @@ Every RESTful API revolves around the concept of _resources_ and _representation
 - Responsible for what operations can be performed on the resources.
 - Responsible for ensuring that all resources are in a valid state.
 
-Today, I literally had to attempt to explain to another team why they should validate  the desired resource states being provided for resource creation and alteration (`POST` and `PUT`). As it stands, they feel that their clients should be responsible for sending them valid data.
+A quick glance through the [HTTP 1.1](https://tools.ietf.org/html/rfc2616) specification and Roy Fielding's dissertation will reveal the definition of an _origin server_:
 
-Immediately what I think of is the [Robustness Principle](https://en.wikipedia.org/wiki/Robustness_principle):
+> The server on which a given resource resides or is to be created.
 
-> Be conservative in what you do, be liberal in what you accept from others.
+A RESTful API is essentially the origin server as defined above in the HTTP specification. A server application such as Microsoft IIS, Apache Tomcat, etc. receives incoming requests, provides the request information to the RESTful API implementation. The RESTful API then processes the request and generates a response and provides this response to the server application, which then is responsible for writing the bits onto the wire to the requesting client.
 
-The further explanation on Wikipedia is on point:
-
->In other words, code that sends commands or data to other machines (or to other programs on the same machine) should conform completely to the specifications, but code that receives input should accept non-conformant input as long as the meaning is clear.
-
-In the case of RESTful API's built on top of HTTP, the specification that **must** be conformed to is the [HTTP specification](https://tools.ietf.org/html/rfc2616). It's also important to clarify that accepting non-conformant input in the context of RESTful APIs using HTTP, means that receiving that input, analyzing it, and constructing informative responses to the client to indicate why the input is non-comformant.
+Many times, I have integrated with source system or third-party RESTful API's that assume no responsibility for ensuring the integrity of their resource states. They simply accept the desired state that I requested when creating or updating a resource, and performed no additional validation.
 
 How could a designer/creator of a RESTful API expect its clients to provide valid data? How does a client know what "valid" means?
 
-It's up to the API to enforce resource validity, **not** its clients. A designer/creator of a RESTful API cannot even expect to know who or what it's clients will be regardless if the API is only hosted within the enterprise firewall.
+It's up to the API to enforce resource validity, **not** its clients. The RESTful API is ultimately responsible for the resources it has defined. A client has no obligation to ensure the validity of the resources. A designer/creator of a RESTful API cannot even expect to know who or what it's clients will be regardless if the API is only hosted within the enterprise firewall.
 
 It shouldn't even take long for one to see how delegating resource ownership crashes and burns (implying it even gets off of the ground):
 
