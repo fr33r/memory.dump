@@ -1,12 +1,12 @@
-### The WAR File
+## The WAR File
 
-A WAR file, or __W__eb Application __AR__chive, is a file that essentially represents a
+A WAR file, or **W**eb Application **AR**chive, is a file that essentially represents a
 java web application. More specifically, a WAR file is a specific type of JAR file that
 is used to deploy various files that make up a Java web application. Such files may include
 Java Server Pages, Java Servlets, regular Java classes (POJO), HTML, CSS, JavaScript, etc. These
 files have a `.war` extension.
 
-#### WAR File Structure
+### WAR File Structure
 
 WAR files all abide by a consistent structure:
 
@@ -46,7 +46,7 @@ This directory contains all of the `.jar` files that are utilized by the web app
 
 The `web.xml` is known as the _web application deployment descriptor_.
 
-#### Creating a WAR File
+### Creating a WAR File
 
 There are several ways to create WAR files. IDE's and other tools have features to reduce the manual work of creating WAR files, some even being completely automatic. However, these tools are not required.
 
@@ -64,7 +64,7 @@ Here is another slightly altered example, except instead of including all files 
 jar -cvf filename.war *.class
 ```
 
-##### Pitfall
+#### Pitfall
 
 A little bit of reading through the Oracle documentation will reveal that the compression used with `jar` is based off of the `ZIP` compression format:
 
@@ -72,7 +72,7 @@ A little bit of reading through the Oracle documentation will reveal that the co
 
 However, this does **not** mean that you can utilize `zip` and `unzip` commands to create JAR and WAR files. It also does not mean you can use built-in menu compression tools that are displayed when right clicking on files. Even though at first these tools appear to create a WAR file, you will quickly find that when a servlet container explodes the file, it will be in an incorrect format. When using macOS or OS X, for example, the `Compress "filename"` menu option will create a `__MACOSX` folder when unzipping.
 
-##### Using WAR Files with Apache Tomcat 9
+#### Using WAR Files with Apache Tomcat 9
 
 Once you have created a WAR file, it comes time to deploy it. A popular servlet container is Apache Tomcat, which is at the time of writing, reached its 9th version. Once Apache Tomcat has been installed, you find amongst its collection of a files and directories a special directory where web applications (WAR files) are deployed. On Ubuntu, this directory can be found at `/var/lib/tomcat8/webapps/`.
 
@@ -88,7 +88,7 @@ Apache Tomcat is very configurable. Its main configuration file is named `server
 </Host>
 ```
 
-#### Resources
+### Resources
 
 - http://docs.oracle.com/javaee/5/tutorial/doc/bnadx.html
 - https://web.archive.org/web/20120626020019/http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WCC3.html
