@@ -4,17 +4,17 @@ When I was developing a RESTful API for http://emma.jonfreer.com/, I ran into an
 
 ### Same Origin Policy
 
-I was unable to perform these AJAX requests because of something called the [same origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This policy restricts how a resource from one origin can interact with another resource from another origin. The main reason for this policy's existence is for security purposes. It was devised in order to prevent a malicious script from one resource on an origin to acquire or interact with sensitive data of another resource on another origin.
+I was unable to perform these AJAX requests because of something called the [same origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This policy restricts how a resource from one origin can interact with another resource from a different origin. The main reason for this policy's existence is for security purposes. It was devised in order to prevent a malicious script from one resource on an origin to acquire or interact with sensitive data of another resource on another origin.
 
 When it came time to deploy my application, I was encountering issues because my front-end (written entirely in HTML5, CSS3, and JavaScript) was performing AJAX HTTP requests using `XMLHttpRequest` to interact with resources exposed by my RESTful API on a different "origin". An origin can be defined as the following:
 
 > Two pages have the same origin if the protocol, port (if one is specified), and host are the same for both pages. **- MDN**
 
-However, not all cross-origin HTTP requests are bad. In fact, in the modern day web, these kinds of requests are everywhere. It is common to see a web page resource perform HTTP requests to other origins for retrieving image resources using the `<img>` HTML tag, for example. In order make these cross-origin HTTP requests possible a mechanism called *cross-origin resource sharing* was devised to allow safe cross domain resource access.
+However, not all cross-origin HTTP requests are bad. In fact, in the modern day web, these kinds of requests are everywhere. It is common to see a web page resource perform HTTP requests to other origins for retrieving image resources using the `<img>` HTML tag, for example. In order make these cross-origin HTTP requests possible a mechanism called *cross-origin resource sharing* was created to allow safe cross domain resource access.
 
 ### Cross-Origin Resource Sharing
 
-CORS stands for **C**ross **O**rigin **R**esource **S**haring and is the standard for safely making cross-origin HTTP requests. The standard is implemented using a series of HTTP headers when exchanging HTTP requests. These HTTP requests can be grouped into "simple" requests and "non-simple" requests known as preflight requests.
+CORS stands for **C** ross **O** rigin **R** esource **S** haring and is the standard for safely making cross-origin HTTP requests. The standard is implemented using a series of HTTP headers when exchanging HTTP requests. These HTTP requests can be grouped into "simple" requests and "non-simple" requests known as preflight requests.
 
 #### "Simple" Requests
 
@@ -25,9 +25,9 @@ In order for an HTTP request following CORS to be considered as a "simple" reque
   - `application/x-www-form-urlencoded`
   - `multipart/form-data`
   - `text/plain`
-- If all of the HTTP headers in the request are either [CORS safelisted request headers](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) or HTTP headers normally set automatically by the browser (referred to as [forbidden headers](https://fetch.spec.whatwg.org/#forbidden-header-name) in the CORS specification).
+- The HTTP headers in the request are either [CORS safelisted request headers](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) or HTTP headers normally set automatically by the browser (referred to as [forbidden headers](https://fetch.spec.whatwg.org/#forbidden-header-name) in the CORS specification).
 
-Below is a real example of what a "simple" CORS request/response may look like between http://emma.jonfreer.com and http://freer.ddns.net:8080:
+Below is a real example of what a "simple" CORS request/response looks like between http://emma.jonfreer.com and http://freer.ddns.net:8080:
 
 ```
 GET /api/wedding/guests/?inviteCode=pa12345 HTTP/1.1
@@ -64,7 +64,7 @@ The [`Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)
 
 ##### Access-Control-Allow-Origin
 
-The [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) HTTP header in a CORS response is used by the server to communicate what origins the requested resource is allowed to be request by. In this specific example, the server responded with the following:
+The [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) HTTP header in a CORS response is used by the server to communicate what origin(s) the requested resource is allowed to be requested from. In this specific example, the server responded with the following:
 
 ```
 ...
@@ -78,11 +78,11 @@ The value of the `Access-Control-Allow-Origin` HTTP header in a CORS response *m
 
 A wildcard value (`*`) is a valid value for the `Access-Control-Allow-Origin` HTTP header in a CORS response. When this wildcard is specified, it means the server is indicating that all origins can access the resource being requested. **Please use this wildcard sparingly as it essentially bypasses the security provided by CORS for the resource being requested. It should only be used when the resource does not contain sensitive data and extensive analysis proves that it cannot be utilized maliciously.**
 
-#### Preflighted Requests
+#### Preflight Requests
 
-If any of the conditions specified for "simple" requests fails, a preflighted request will be performed instead. A preflighted request involves sending an HTTP request with a method of `OPTION` to the receiving origin with the goal of ensuring the desired cross-origin request is safe to send. Upon "approval" for the first request, the desired request is performed.
+If any of the conditions specified for "simple" requests fails, a preflight request will be performed instead. A preflight request involves sending an HTTP request with a method of `OPTION` to the receiving origin with the goal of ensuring the desired cross-origin request is safe to send. Upon "approval" of this first request, the desired request is subsequently performed.
 
-Here is an example of a preflighted request between http://emma.jonfreer.com and http://freer.ddns.net:
+Here is an example of a preflight request between http://emma.jonfreer.com and http://freer.ddns.net:
 
 `Preflight Request:`
 ```
@@ -113,7 +113,7 @@ Content-Length: 0
 Date: Thu, 16 Feb 2017 04:14:32 GMT
 ```
 
-As you can see in the preflight request, there are three CORS-related HTTP headers: `Origin`, `Access-Control-Request-Method`, `Access-Control-Request-Headers`. As discussed earlier for "simple" requests, the `Origin` HTTP header simply specifies the origin that the CORS request is originating from.
+As you can see in the preflight request, there are three CORS-related HTTP headers: `Origin`, `Access-Control-Request-Method`, and `Access-Control-Request-Headers`. As discussed earlier for "simple" requests, the `Origin` HTTP header simply specifies the origin that the CORS request is originating from.
 
 ##### Access-Control-Request-Method
 
@@ -121,11 +121,11 @@ The [`Access-Control-Request-Method`](https://developer.mozilla.org/en-US/docs/W
 
 ##### Access-Control-Request-Headers
 
-The [`Access-Control-Request-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Request-Headers) HTTP header in a CORS preflight request that communicates to the server what HTTP headers may be used for the "real" (desired) request.
+The [`Access-Control-Request-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Request-Headers) HTTP header in a CORS preflight request communicates to the server what HTTP headers may be used for the "real" (desired) request.
 
 The `Origin`, `Access-Control-Request-Method`, and `Access-Control-Request-Method` HTTP headers sent in the CORS preflight request provides the server the opportunity to decide whether or not to allow a cross-origin request with the specified HTTP method and specified HTTP headers in the `Access-Control-Request-Method` and `Access-Control-Request-Headers` headers, respectively.
 
-In response to the preflight request, the server response with an HTTP status of `200 OK` as well a few CORS-specific headers to pay attention to: `Access-Control-Allow-Origin`, `Access-Control-Max-Age`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`. Again, as a recap to the explanation found for "simple" requests, the `Access-Control-Allow-Origin` HTTP header indicates which origins have access to the resource being requested.
+In response to the preflight request, the server responds with an HTTP status of `200 OK` as well a few CORS-specific headers to pay attention to: `Access-Control-Allow-Origin`, `Access-Control-Max-Age`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`. Again, as a recap to the explanation found for "simple" requests, the `Access-Control-Allow-Origin` HTTP header indicates which origins have access to the resource being requested.
 
 ##### Access-Control-Max-Age
 
@@ -137,7 +137,7 @@ The [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/We
 
 ##### Access-Control-Allow-Headers
 
-The [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) is present in the response to a preflight request to indicate what HTTP headers will be available in the `Access-Control-Expose-Headers` HTTP header found in the response to the subsequent CORS request. It is important to note that the ["simple" headers](https://developer.mozilla.org/en-US/docs/Glossary/simple_header) (CORS-safelisted headers) do not need to be listed within the
+The [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) is present in the response to a preflight request to indicate what HTTP headers will be available in the `Access-Control-Expose-Headers` HTTP header found in the response to the subsequent CORS request. It is important to note that the ["simple" headers](https://developer.mozilla.org/en-US/docs/Glossary/simple_header) (CORS safelisted headers) do not need to be listed within the
 `Access-Control-Allow-Headers` header.
 
 `Subsequent CORS Request:`
