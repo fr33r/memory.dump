@@ -159,7 +159,7 @@ Accept-Language: en-US,en;q=0.8
 }
 ```
 
-`Response #2`
+`Response to Subsequent CORS Request:`
 
 ```
 HTTP/1.1 200 OK
@@ -173,9 +173,9 @@ Date: Thu, 16 Feb 2017 04:14:32 GMT
 
 
 
-### Configuring Tomcat 8
+### Configuring Tomcat 8 (Linux Ubuntu LTS)
 
-If you are hosting a single RESTful API, or want to enforce the same CORS policy for all of applications hosted within the same instance of Apache Tomcat 8, you can configure Tomcat to carry out the various server responsibilities discussed in previous sections of this memory dump.
+If you are hosting a single RESTful API, or want to enforce the same CORS policy for all of the applications hosted within the same instance of Apache Tomcat 8, you can configure Tomcat to carry out the various server responsibilities discussed in previous sections of this memory dump.
 
 #### CORS Filter
 
