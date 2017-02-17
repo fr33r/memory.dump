@@ -84,36 +84,63 @@ If any of the conditions specified for "simple" requests fails, a preflighted re
 
 Here is an example of a preflighted request between http://emma.jonfreer.com and http://freer.ddns.net:
 
-`Request #1`
+`Preflight Request:`
 ```
 OPTIONS /api/wedding/guests/235/ HTTP/1.1
 Host: freer.ddns.net:8080
 Connection: keep-alive
-Access-Control-Request-Method: PUT
-Origin: http://emma.jonfreer.com
+Access-Control-Request-Method: PUT  <---
+Origin: http://emma.jonfreer.com  <---
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
-Access-Control-Request-Headers: content-type
+Access-Control-Request-Headers: content-type  <---
 Accept: */*
 Referer: http://emma.jonfreer.com/editGuest.html
 Accept-Encoding: gzip, deflate, sdch
 Accept-Language: en-US,en;q=0.8
 ```
 
-`Response #1`
+`Response to Preflight Request:`
 
 ```
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
-Access-Control-Allow-Origin: http://emma.jonfreer.com
+Access-Control-Allow-Origin: http://emma.jonfreer.com <---
 Access-Control-Allow-Credentials: true
-Access-Control-Max-Age: 1800
-Access-Control-Allow-Methods: PUT
-Access-Control-Allow-Headers: origin,x-requested-with,access-control-request-headers,content-type,access-control-request-method,accept
+Access-Control-Max-Age: 1800  <---
+Access-Control-Allow-Methods: PUT <---
+Access-Control-Allow-Headers: origin,x-requested-with,access-control-request-headers,content-type,access-control-request-method,accept  <---
 Content-Length: 0
 Date: Thu, 16 Feb 2017 04:14:32 GMT
 ```
 
-`Request #2`
+As you can see in the preflight request, there are three CORS-related HTTP headers: `Origin`, `Access-Control-Request-Method`, `Access-Control-Request-Headers`. As discussed earlier for "simple" requests, the `Origin` HTTP header simply specifies the origin that the CORS request is originating from.
+
+##### Access-Control-Request-Method
+
+The [`Access-Control-Request-Method`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Request-Method) HTTP header in a CORS preflight request is used to indicate to the server the HTTP method that will be used for the "real" (desired) request.
+
+##### Access-Control-Request-Headers
+
+The [`Access-Control-Request-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Request-Headers) HTTP header in a CORS preflight request that communicates to the server what HTTP headers may be used for the "real" (desired) request.
+
+The `Origin`, `Access-Control-Request-Method`, and `Access-Control-Request-Method` HTTP headers sent in the CORS preflight request provides the server the opportunity to decide whether or not to allow a cross-origin request with the specified HTTP method and specified HTTP headers in the `Access-Control-Request-Method` and `Access-Control-Request-Headers` headers, respectively.
+
+In response to the preflight request, the server response with an HTTP status of `200 OK` as well a few CORS-specific headers to pay attention to: `Access-Control-Allow-Origin`, `Access-Control-Max-Age`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`. Again, as a recap to the explanation found for "simple" requests, the `Access-Control-Allow-Origin` HTTP header indicates which origins have access to the resource being requested.
+
+##### Access-Control-Max-Age
+
+The [`Access-Control-Max-Age`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) header indicates how long the outcome of a preflight request can be cached. More specifically, the value of this HTTP header communicates how many seconds the values of the `Access-Control-Allow-Methods` and `Access-Control-Allow-Headers` headers can be cached.
+
+##### Access-Control-Allow-Methods
+
+The [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) dictates which HTTP methods can be utilized when making requests to the target resource of the preflight request. In order for subsequent CORS requests to succeed, the value specified in the `Access-Control-Request-Method` header in the preflight request must be listed as one of the HTTP methods in the `Access-Control-Allow-Methods` header found in the response to the preflight request.
+
+##### Access-Control-Allow-Headers
+
+The [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) is present in the response to a preflight request to indicate what HTTP headers will be available in the `Access-Control-Expose-Headers` HTTP header found in the response to the subsequent CORS request. It is important to note that the ["simple" headers](https://developer.mozilla.org/en-US/docs/Glossary/simple_header) (CORS-safelisted headers) do not need to be listed within the
+`Access-Control-Allow-Headers` header.
+
+`Subsequent CORS Request:`
 ```
 PUT /api/wedding/guests/235/ HTTP/1.1
 Host: freer.ddns.net:8080
