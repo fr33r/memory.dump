@@ -173,12 +173,33 @@ Date: Thu, 16 Feb 2017 04:14:32 GMT
 
 
 
-### Configuring Tomcat 9
+### Configuring Tomcat 8
 
-### Resources
+If you are hosting a single RESTful API, or want to enforce the same CORS policy for all of applications hosted within the same instance of Apache Tomcat 8, you can configure Tomcat to carry out the various server responsibilities discussed in previous sections of this memory dump.
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+#### CORS Filter
 
-- https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+Apache Tomcat 8 (along with other versions as well; this is just the version that my RESTful API is currently hosted with) can be configured to make use of a filter provided with the container called the [CORS Filter](https://tomcat.apache.org/tomcat-8.0-doc/config/filter.html#CORS_Filter). If you are utilizing Linux Ubuntu LTS, you can make the necessary changes in the `web.xml` file found in the `/var/lib/tomcat8/conf/` directory. Below is the configuration I am using to serve as an example:
 
-- https://en.wikipedia.org/wiki/Same-origin_policy
+```xml
+<filter>
+  <filter-name>CorsFilter</filter-name>
+  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+  <init-param>
+    <param-name>cors.allowed.origins</param-name>
+    <param-value>http://emma.jonfreer.com, http://www.jonfreer.com, http://wedding.jonfreer.com</param-value>
+  </init-param>
+  <init-param>
+    <param-name>cors.allowed.methods</param-name>
+    <param-value>GET, POST, HEAD, OPTIONS, PUT, DELETE</param-value>
+  </init-param>
+  <init-param>
+    <param-name>cors.exposed.headers</param-name>
+    <param-value>Date, ETag</param-value>
+  </init-param>
+</filter>
+<filter-mapping>
+  <filter-name>CorsFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
