@@ -171,7 +171,7 @@ Content-Length: 227
 Date: Thu, 16 Feb 2017 04:14:32 GMT
 ```
 
-
+Since the server (origin of `http://freer.ddns.net`) acknowledged that a `PUT` request to the resource `api/wedding/guests/235/` with a `Content-Type` HTTP header from an origin of `http://emma.jonfreer.com` was allowed (indicated by the values provided in the `Access-Control-Allow-Origin`, `Access-Control-Allow-Headers`, and `Access-Control-Allow-Methods` HTTP headers in the response to the preflight request), the subsequent CORS request was made and completed successfully.
 
 ### Configuring Tomcat 8 (Linux Ubuntu LTS)
 
