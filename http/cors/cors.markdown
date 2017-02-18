@@ -123,7 +123,7 @@ The [`Access-Control-Request-Method`](https://developer.mozilla.org/en-US/docs/W
 
 The [`Access-Control-Request-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Request-Headers) HTTP header in a CORS preflight request communicates to the server what HTTP headers may be used for the "real" (desired) request.
 
-The `Origin`, `Access-Control-Request-Method`, and `Access-Control-Request-Method` HTTP headers sent in the CORS preflight request provides the server the opportunity to decide whether or not to allow a cross-origin request with the specified HTTP method and specified HTTP headers in the `Access-Control-Request-Method` and `Access-Control-Request-Headers` headers, respectively.
+The `Origin`, `Access-Control-Request-Method`, and `Access-Control-Request-Headers` HTTP headers sent in the CORS preflight request provides the server the opportunity to decide whether or not to allow a cross-origin request with the specified HTTP method and specified HTTP headers in the `Access-Control-Request-Method` and `Access-Control-Request-Headers` headers, respectively.
 
 In response to the preflight request, the server responds with an HTTP status of `200 OK` as well a few CORS-specific headers to pay attention to: `Access-Control-Allow-Origin`, `Access-Control-Max-Age`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`. Again, as a recap to the explanation found for "simple" requests, the `Access-Control-Allow-Origin` HTTP header indicates which origins have access to the resource being requested.
 
