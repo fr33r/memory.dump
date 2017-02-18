@@ -1,6 +1,6 @@
 ## CORS
 
-When I was developing a RESTful API for http://emma.jonfreer.com/, I ran into an issue during my deployment. I had decided to host my API on http://freer.ddns.net on a server at home, while I hosted the front-end on http://emma.jonfreer.com. Up to this point, I had never heard of the [same origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) or [cross-origin resource sharing]() so once I deployed my front-end to http://emma.jonfreer.com and my RESTful API to http://freer.ddns.net, I found that I was unable to successfully complete AJAX requests from the front-end to the API.
+When I was developing a RESTful API for http://emma.jonfreer.com/, I ran into an issue during my deployment. I had decided to host my API on http://freer.ddns.net on a server at home, while I hosted the front-end on http://emma.jonfreer.com. Up to this point, I had never heard of the [same origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) or [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so once I deployed my front-end to http://emma.jonfreer.com and my RESTful API to http://freer.ddns.net, I found that I was unable to successfully complete AJAX requests from the front-end to the API.
 
 ### Same Origin Policy
 
