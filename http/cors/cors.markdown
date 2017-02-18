@@ -10,11 +10,11 @@ When it came time to deploy my application, I was encountering issues because my
 
 > Two pages have the same origin if the protocol, port (if one is specified), and host are the same for both pages. **- MDN**
 
-However, not all cross-origin HTTP requests are bad. In fact, in the modern day web, these kinds of requests are everywhere. It is common to see a web page resource perform HTTP requests to other origins for retrieving image resources using the `<img>` HTML tag, for example. In order make these cross-origin HTTP requests possible a mechanism called *cross-origin resource sharing* was created to allow safe cross domain resource access.
+However, not all cross-origin HTTP requests are bad. In fact, in the modern day web, these kinds of requests are everywhere. It is common to see a web page resource perform HTTP requests to other origins for retrieving image resources using the `<img>` HTML tag, for example. In order make these cross-origin HTTP requests possible a mechanism called *cross-origin resource sharing* was created to allow safe cross-origin resource access.
 
 ### Cross-Origin Resource Sharing
 
-CORS stands for **C** ross **O** rigin **R** esource **S** haring and is the standard for safely making cross-origin HTTP requests. The standard is implemented using a series of HTTP headers when exchanging HTTP requests. These HTTP requests can be grouped into "simple" requests and "non-simple" requests known as preflight requests.
+CORS stands for **C** ross **O** rigin **R** esource **S** haring and is the standard (known as the [Fetch Standard](https://fetch.spec.whatwg.org) developed and maintained by the [WHATWG](https://en.wikipedia.org/wiki/WHATWG)) for safely making cross-origin HTTP requests. The standard is implemented using a series of HTTP headers when exchanging HTTP requests. These HTTP requests can be grouped into "simple" requests and "non-simple" requests known as preflight requests.
 
 #### "Simple" Requests
 
