@@ -18,7 +18,7 @@ Consider the relationship between a country and the presidents that have led the
 
 But when this relationship is formulated, you must ask yourself whether one direction of this bidirectional relationship is "more" natural. In this example, there is a clear winner. It is more often (or "natural") that when conceptualizing the relationship between a country and its presidents, that you start with the one country and traverse its association to the many presidents. After all, how common is that we would start out with "Abraham Lincoln" and next ask, "Which country was he president?".
 
-This let's us refine the bidirectional one-to-many relationship to a unidirectional one-to-many relationship. Not only that, refining this association sheds more insight into the domain itself, while at the same time offering a less complicated implementation. The domain know demonstrates that the chosen direction of the association is far more important and meaningful than the direction removed.
+This lets us refine the bidirectional one-to-many relationship to a unidirectional one-to-many relationship. Not only that, refining this association sheds more insight into the domain itself, while at the same time offering a less complicated implementation. The domain now demonstrates that the chosen direction of the association is far more important and meaningful than the direction removed.
 
 Even deeper understanding of the domain can expose more refinements that constrain the associations further. Evans encourages us to push to refine associations as much as we can:
 
