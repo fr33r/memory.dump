@@ -18,7 +18,7 @@ A service placed in the `Domain Layer` represents a behavior, action, or operati
 
 > Some concepts from the domain aren't natural to model as objects. Forcing the required domain functionality to be the responsibility of an `entity` or `value` either distorts the definition of a model-based object or adds meaningless artificial objects. **- Pg. 105**
 
-It is important that the operation the service represents should present in the `ubiquitous language` or be introduced into it if not already identified. The objects that the domain service is interfacing with should be present in the domain model itself.
+It is important that the operation the service represents should be present in the `ubiquitous language` or be introduced into it if not already identified. The objects that the domain service is interfacing with should be present in the domain model itself.
 
 There are three characteristics that describe a well defined _domain_ service:
 
@@ -59,8 +59,8 @@ This banking application has a feature that allows the user to transfer funds fr
 - Send Notification Service
   + Sends emails, letters, and other communications as directed by the application.
 
-Examining this, it is important to notice that the application service (Funds Transfer Application Service) is responsible for ordering the notification. Notification sending is a feature of the application itself, not the domain. The technical capability of sending a notification is exposed as an infrastructure service (Send Notification Service), and the application service is responsible of determine _when_ or _if_ that notification should be sent. The application service is not concerned with _how_ that notification is sent; that is the responsibility of the infrastructure service.
+Examining this, it is important to notice that the application service (Funds Transfer Application Service) is responsible for ordering the notification. Notification sending is a feature of the application itself, not the domain. The technical capability of sending a notification is exposed as an infrastructure service (Send Notification Service), and the application service is responsible for determining _when_ or _if_ that notification should be sent. The application service is not concerned with _how_ that notification is sent; that is the responsibility of the infrastructure service.
 
 Another observation that is important to discuss, is the existence of the domain service (Funds Transfer Domain Service). Evans justifies the usage of a domain service for funds transfers:
 
-> A feature that can transfer funds from one account to another is a domain service because it embeds significant business rules (crediting and debiting the appropriate accounts, for example) and because a "funds transfer" is a meaningful banking term. In this case, the service does not do too much on its own; it would as the two Account objects to do most of the work. But to put the "transfer" operation on the Account object would be awkward, because the operation involves two accounts and some global rules. **- Pg. 107**
+> A feature that can transfer funds from one account to another is a domain service because it embeds significant business rules (crediting and debiting the appropriate accounts, for example) and because a "funds transfer" is a meaningful banking term. In this case, the service does not do too much on its own; it would ask the two Account objects to do most of the work. But to put the "transfer" operation on the Account object would be awkward, because the operation involves two accounts and some global rules. **- Pg. 107**
