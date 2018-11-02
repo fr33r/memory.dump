@@ -5,7 +5,8 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
 "Plugin 'artur-shaik/vim-javacomplete2'
 call vundle#end() " All of your Plugins must be added before the following line;  required
 filetype plugin indent on    " required
