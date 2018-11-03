@@ -1,8 +1,8 @@
 set modelines=1 " specifies the number of modelines within the file.
 
 " supertab {{{
-" let g:SuperTabDefaultCompletionType = \"<c-x><c-o>"
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabDefaultCompletionType = "<c-p>"
 " }}}
 " javacomplete2 {{{
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -58,5 +58,13 @@ nmap <silent> <buffer> <leader>jN <Plug>(JavaComplete-Generate-ClassInFile)
 
 " }}}
 " vim-airline {{{
+" }}}
+" vim-go {{{
+" configures the windows when in debug mode.
+let g:go_debug_windows = {
+	\ 'vars': 'leftabove vnew',
+	\ 'out': 'botright new',
+	\ 'stack': 'leftabove vnew',
+\ }
 " }}}
 " vim:foldmethod=marker:foldlevel=0

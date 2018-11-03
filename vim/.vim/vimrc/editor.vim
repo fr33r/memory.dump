@@ -8,6 +8,7 @@ set listchars=tab:▹\ ,eol:¬ " specifies which characters to use when displayi
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set cursorline " highlights the entire line of the cursor. is not activated during Visual mode.
 set showmatch " jumps to matching parenthesis or bracket briefly when one is inserted.
+filetype plugin on
 " }}}
 " Java {{{
 let java_highlight_functions="style"
