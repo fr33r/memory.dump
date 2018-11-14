@@ -1,10 +1,10 @@
 ## Allocation Using `new` and `make`
 
-If you have taken a look at some code written in `go`, it is likely you have noticed the two built in functions `new` and `make`. You may be scratching your head as to when use one or the other. Despite that the contexts and the manner in which these two functions are utilized seems very similar, there are some subtle but important differences between them.
+If you have taken a look at some code written in `go`, it is likely you have noticed the two built-in functions `new` and `make`. You may be scratching your head as to when to use one or the other. Despite that the contexts and the manner in which these two functions are utilized seems very similar, there are some subtle but important differences between them.
 
 ### `new`
 
-The [`new`](https://golang.org/doc/effective_go.html#allocation_new) builtin function allocates memory for a type, but _does not_ initialize the memory. In other words, once memory is allocated, the `new` function zeroes that memory. After the allocation is complete, the `new` function returns a pointer to the new zeroed instance of the type provided to it.
+The [`new`](https://golang.org/doc/effective_go.html#allocation_new) built-in function allocates memory for a type, but _does not_ initialize the memory. In other words, once memory is allocated, the `new` function zeroes that memory. After the allocation is complete, the `new` function returns a pointer to the new zeroed instance of the type provided to it.
 
 ```go
 var myType *MyType = new(MyType)
@@ -71,7 +71,7 @@ My answer to you is: nothing. Absolutely nothing.
 
 ### `make`
 
-In contrast, the [`make`](https://golang.org/doc/effective_go.html#allocation_make) builtin function constructs fully initialized instances of slices, maps, and channels exclusively. The result of calling `make` is a value (not a pointer!) of the type provided that is completely initialized. The driving reason for the special treatment of these three types lies with the fact that these types are comprised of data structures that must be initialized before they are of any value.
+In contrast, the [`make`](https://golang.org/doc/effective_go.html#allocation_make) built-in function constructs fully initialized instances of slices, maps, and channels exclusively. The result of calling `make` is a value (not a pointer!) of the type provided that is completely initialized. The driving reason for the special treatment of these three types lies with the fact that these types are comprised of data structures that must be initialized before they can be used.
 
 ```go
 var v []int = make([]int, 100)
