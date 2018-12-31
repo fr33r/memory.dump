@@ -61,10 +61,12 @@ nmap <silent> <buffer> <leader>jN <Plug>(JavaComplete-Generate-ClassInFile)
 " }}}
 " vim-go {{{
 " configures the windows when in debug mode.
-let g:go_debug_windows = {
-	\ 'vars': 'leftabove vnew',
-	\ 'out': 'botright new',
-	\ 'stack': 'leftabove vnew',
-\ }
+if !has('ios')
+	let g:go_debug_windows = {
+		\ 'vars': 'leftabove vnew',
+		\ 'out': 'botright new',
+		\ 'stack': 'leftabove vnew',
+	\ }
+endif
 " }}}
 " vim:foldmethod=marker:foldlevel=0
