@@ -1,3 +1,4 @@
+filetype plugin on
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -9,9 +10,9 @@ if !has('ios') " Plugins that cannot load on iOS.
 	Plugin 'vim-airline/vim-airline-themes'
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'fatih/vim-go'
+	Plugin 'ctrlpvim/ctrlp.vim'
 endif
 
-"Plugin 'artur-shaik/vim-javacomplete2'
 call vundle#end() " All of your Plugins must be added before the following line;  required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:

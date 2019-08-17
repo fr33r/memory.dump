@@ -20,10 +20,41 @@ let g:netrw_localrmdir='rm -r' " sets the NETRW deletion command.
 " automatically opens NETRW when vim is started.
 augroup ProjectDrawer
 	autocmd!
-	autocmd VimEnter * :Vexplore
+	autocmd VimEnter * :Vexplore " When entering Vim, open the explorer (NETRW).
+	autocmd VimEnter * set wfw " When entering Vim, make the window sizes fixed.
+	autocmd VimEnter * wincmd l " When entering Vim, place curser in right buffer.
 augroup END
 " }}}
 " Java {{{
 let java_highlight_functions="style"
+autocmd FileType java set tags+=~/.vim/tags/java/8/.tags
+" }}}
+" Mappings {{{
+" Sets the leader key to the spacebar.
+let mapleader = " "
+" Surrounds the current word with quotes while in normal mode.
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+" Surrounds the current selection in visual mode with quotes.
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>ll
+" Surrounds the current word with single quotes while in normal mode.
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+" Surrounds the current selection in visual mode with single quotes.
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>ll
+" Opens .vimrc file for editing."
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Reloads .vimrc file.
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" Assings 'jk' to the Escape key when in insert mode.
+inoremap jk <esc>
+" Disable the arrow keys in normal mode.
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+" Based on the file type, configures the mapping for commenting a line.
+autocmd filetype java nnoremap <buffer> <leader>c I//<esc>
+" }}}
+" Omnicompletion {{{
+set omnifunc=syntaxcomplete#Complete
 " }}}
 " vim:foldmethod=marker:foldlevel=0
