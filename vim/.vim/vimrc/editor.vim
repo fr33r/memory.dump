@@ -9,6 +9,11 @@ set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set cursorline " highlights the entire line of the cursor. is not activated during Visual mode.
 set showmatch " jumps to matching parenthesis or bracket briefly when one is inserted.
 filetype plugin on
+set foldmethod=syntax " fold lines based on syntax rules.
+" set foldmethod=indent " fold lines based on indentation.
+" automatically generate tags when writing the buffer.
+" autocmd BufWrite * :silent !ctags -R -f .tags
+" set tags +=./.tags
 " }}}
 " NETRW {{{
 let g:netrw_liststyle = 3 " configures NETRW to use a tree-view.
