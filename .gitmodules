@@ -1,0 +1,6 @@
+[submodule "vim/.vim/bundle/vim-airline-themes"]
+	path = vim/.vim/bundle/vim-airline-themes
+	url = https://github.com/freerjm/vim-airline-themes.git
+[submodule "vim/.vim/bundle/AutoComplPop"]
+	path = vim/.vim/bundle/AutoComplPop
+	url = https://github.com/freerjm/AutoComplPop.git
