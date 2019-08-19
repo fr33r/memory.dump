@@ -11,6 +11,7 @@ if !has('ios') " Plugins that cannot load on iOS.
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'fatih/vim-go'
 	Plugin 'ctrlpvim/ctrlp.vim'
+	Plugin 'AutoComplPop'
 endif
 
 call vundle#end() " All of your Plugins must be added before the following line;  required
