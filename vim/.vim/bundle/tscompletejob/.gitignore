@@ -1,0 +1,3 @@
+node_modules/
+/runtest.sh
+!/autoload/tscompletejob/tsswrapper/node_modules/typescript

@@ -3,19 +3,48 @@ filetype plugin on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-"Plugin 'ervandew/supertab'
 
 if !has('ios') " Plugins that cannot load on iOS.
+	" Editor plugins.
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
 	Plugin 'tpope/vim-fugitive'
-	Plugin 'fatih/vim-go'
 	Plugin 'ctrlpvim/ctrlp.vim'
-	"Plugin 'AutoComplPop'
+	Plugin 'nathanaelkane/vim-indent-guides'
+	Plugin 'tpope/vim-commentary'
+
+	" Autocomplete plugins.
 	Plugin 'prabirshrestha/asyncomplete.vim'
 	Plugin 'prabirshrestha/async.vim'
 	Plugin 'prabirshrestha/vim-lsp'
 	Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+	Plugin 'yami-beta/asyncomplete-omni.vim'
+
+	" JavaScript plugins.
+	Plugin 'HerringtonDarkholme/yats.vim'
+	Plugin 'maxmellon/vim-jsx-pretty'
+	Plugin 'ryanolsonx/vim-lsp-javascript'
+	Plugin 'prettier/vim-prettier'
+
+	" Typescript plugins.
+	Plugin 'runoshun/tscompletejob'
+	Plugin 'prabirshrestha/asyncomplete-tscompletejob.vim' 
+
+	" HTML plugins.
+	Plugin 'alvan/vim-closetag'
+
+	" CSS plugins.
+	Plugin 'ap/vim-css-color'
+
+	" Golang plugins.
+	Plugin 'fatih/vim-go'
+
+	" Ruby plugins.
+	Plugin 'tpope/vim-endwise'
+	Plugin 'tpope/vim-rails'
+
+	" Emoji plugins.
+	Plugin 'prabirshrestha/asyncomplete-emoji.vim'
 endif
 
 call vundle#end() " All of your Plugins must be added before the following line;  required

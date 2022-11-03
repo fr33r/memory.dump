@@ -8,9 +8,16 @@ set listchars=tab:▹\ ,eol:¬ " specifies which characters to use when displayi
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set cursorline " highlights the entire line of the cursor. is not activated during Visual mode.
 set showmatch " jumps to matching parenthesis or bracket briefly when one is inserted.
+set colorcolumn=80
+set redrawtime=10000
+set re=0
 filetype plugin on
-set foldmethod=syntax " fold lines based on syntax rules.
 " set foldmethod=indent " fold lines based on indentation.
+" set foldmethod=syntax " fold lines based on syntax rules.
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
+set foldlevelstart=99
 " automatically generate tags when writing the buffer.
 " autocmd BufWrite * :silent !ctags -R -f .tags
 " set tags +=./.tags
@@ -23,16 +30,21 @@ let g:netrw_winsize = 25 " sets the horizontal window size of the NETRW window.
 let g:netrw_localrmdir='rm -r' " sets the NETRW deletion command.
 
 " automatically opens NETRW when vim is started.
-augroup ProjectDrawer
-	autocmd!
-	autocmd VimEnter * :Vexplore " When entering Vim, open the explorer (NETRW).
-	autocmd VimEnter * set wfw " When entering Vim, make the window sizes fixed.
-	autocmd VimEnter * wincmd l " When entering Vim, place curser in right buffer.
-augroup END
+" augroup ProjectDrawer
+"	autocmd!
+"	autocmd VimEnter * :Vexplore " When entering Vim, open the explorer (NETRW).
+"	autocmd VimEnter * set wfw " When entering Vim, make the window sizes fixed.
+"	autocmd VimEnter * wincmd l " When entering Vim, place curser in right buffer.
+" augroup END
 " }}}
 " Java {{{
 let java_highlight_functions="style"
 autocmd FileType java set tags+=~/.vim/tags/java/8/.tags
+" }}}
+" Ruby {{{
+" https://github.com/skwp/dotfiles/issues/802#issuecomment-427766355
+let $RUBYHOME=$HOME."/.rbenv/versions/2.5.1"
+set rubydll=$HOME/.rbenv/versions/2.5.1/lib/libruby.2.5.1.dylib
 " }}}
 " Mappings {{{
 " Sets the leader key to the spacebar.

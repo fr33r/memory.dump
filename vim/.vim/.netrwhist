@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/freer/.vim/bundle/async.vim'
+let g:netrw_dirhist_6='/Users/freer/.vim/bundle/asyncomplete-omni.vim'
+let g:netrw_dirhist_5='/Users/freer/.vim/bundle'
+let g:netrw_dirhist_4='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems'
+let g:netrw_dirhist_3='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0'
+let g:netrw_dirhist_2='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems'
+let g:netrw_dirhist_1='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sidekiq-6.4.1/lib/sidekiq'
+let g:netrw_dirhist_0='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sidekiq-6.4.1/lib'
+let g:netrw_dirhist_9='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sidekiq-6.4.1'
+let g:netrw_dirhist_8='/Users/freer/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems'

@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+<Down>	editor.vim	/^nnoremap <Down> <nop>$/;"	m
+<Left>	editor.vim	/^nnoremap <Left> <nop>$/;"	m
+<Right>	editor.vim	/^nnoremap <Right> <nop>$/;"	m
+<Up>	editor.vim	/^nnoremap <Up> <nop>$/;"	m
+<leader>"	editor.vim	/^nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel$/;"	m
+<leader>"	editor.vim	/^vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>ll$/;"	m
+<leader>'	editor.vim	/^nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel$/;"	m
+<leader>'	editor.vim	/^vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>ll$/;"	m
+<leader>ev	editor.vim	/^nnoremap <leader>ev :vsplit $MYVIMRC<cr>$/;"	m
+<leader>sv	editor.vim	/^nnoremap <leader>sv :source $MYVIMRC<cr>$/;"	m
+ProjectDrawer	editor.vim	/^augroup ProjectDrawer$/;"	a
+g:SuperTabDefaultCompletionType	plugin_configuration.vim	/^let g:SuperTabDefaultCompletionType = "<c-x><c-o>"$/;"	v
+g:go_auto_type_info	plugin_configuration.vim	/^	let g:go_auto_type_info = 1$/;"	v
+g:go_debug_windows	plugin_configuration.vim	/^	let g:go_debug_windows = {$/;"	v
+g:go_def_mode	plugin_configuration.vim	/^	let g:go_def_mode='gopls'$/;"	v
+g:go_info_mode	plugin_configuration.vim	/^	let g:go_info_mode='gopls'$/;"	v
+g:netrw_banner	editor.vim	/^let g:netrw_banner = 0 " hides the NETRW banner.$/;"	v
+g:netrw_browse_split	editor.vim	/^let g:netrw_browse_split = 2 " opens selected files\/directories in vertical split windows.$/;"	v
+g:netrw_liststyle	editor.vim	/^let g:netrw_liststyle = 3 " configures NETRW to use a tree-view.$/;"	v
+g:netrw_localrmdir	editor.vim	/^let g:netrw_localrmdir='rm -r' " sets the NETRW deletion command.$/;"	v
+g:netrw_winsize	editor.vim	/^let g:netrw_winsize = 25 " sets the horizontal window size of the NETRW window.$/;"	v
+java_highlight_functions	editor.vim	/^let java_highlight_functions="style"$/;"	v
+jk	editor.vim	/^inoremap jk <esc>$/;"	m
+mapleader	editor.vim	/^let mapleader = " "$/;"	v
