@@ -1,8 +1,5 @@
 set modelines=1 " specifies the number of modelines within the file.
 
-" supertab 
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-" 
 " vim-airline 
 " 
 " vim-go 
@@ -70,33 +67,9 @@ if executable('typescript-language-server')
         \ })
 endif
 
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-\ 'name': 'omni',
-\ 'whitelist': ['*'],
-\ 'completor': function('asyncomplete#sources#omni#completor')
-\  }))
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#emoji#get_source_options({
-\ 'name': 'emoji',
-\ 'allowlist': ['*'],
-\ 'completor': function('asyncomplete#sources#emoji#completor'),
-\ }))
-
-let g:lsp_log_verbose = 0
-let g:lsp_log_file = ''
-let g:lsp_diagnostics_highlights_delay = 150
-let g:lsp_diagnostics_signs_delay = 10
-let g:lsp_completion_resolve_timeout = 20
-let g:lsp_document_code_action_signs_delay = 50
-let g:lsp_preview_autoclose = 0
-let g:asyncomplete_auto_completeopt = 0
-
 set completeopt=menuone,noinsert,noselect,preview
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-" 
 " vim-closetag 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.

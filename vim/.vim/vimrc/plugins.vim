@@ -10,7 +10,6 @@ if !has('ios') " Plugins that cannot load on iOS.
 	Plugin 'vim-airline/vim-airline-themes'
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'ctrlpvim/ctrlp.vim'
-	Plugin 'nathanaelkane/vim-indent-guides'
 	Plugin 'tpope/vim-commentary'
 
 	" Autocomplete plugins.
@@ -18,16 +17,11 @@ if !has('ios') " Plugins that cannot load on iOS.
 	Plugin 'prabirshrestha/async.vim'
 	Plugin 'prabirshrestha/vim-lsp'
 	Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-	Plugin 'yami-beta/asyncomplete-omni.vim'
 
 	" JavaScript plugins.
-	Plugin 'HerringtonDarkholme/yats.vim'
-	Plugin 'maxmellon/vim-jsx-pretty'
-	Plugin 'ryanolsonx/vim-lsp-javascript'
 	Plugin 'prettier/vim-prettier'
 
 	" Typescript plugins.
-	Plugin 'runoshun/tscompletejob'
 	Plugin 'prabirshrestha/asyncomplete-tscompletejob.vim' 
 
 	" HTML plugins.
@@ -42,9 +36,6 @@ if !has('ios') " Plugins that cannot load on iOS.
 	" Ruby plugins.
 	Plugin 'tpope/vim-endwise'
 	Plugin 'tpope/vim-rails'
-
-	" Emoji plugins.
-	Plugin 'prabirshrestha/asyncomplete-emoji.vim'
 endif
 
 call vundle#end() " All of your Plugins must be added before the following line;  required
