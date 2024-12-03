@@ -1,0 +1,20 @@
+# This is Git's per-user configuration file.
+[user]
+	name = fr33r
+	email = github@fr33r.com
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
